@@ -46,7 +46,9 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressBook.cs" />
     <Compile Include="Model\Entry.cs" />
+    <Compile Include="Model\Note.cs" />
     <Compile Include="Model\Telephone.cs" />
+    <Compile Include="Model\UserNotes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
