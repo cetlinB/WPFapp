@@ -1,0 +1,260 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CF277510-35D2-46F0-BEF9-88D8510D7C62}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>WPFApplication</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="NoteClassLibrary\bin\Debug\SampleClassLibrary.dll" />
+    <Content Include="NoteClassLibrary\bin\Debug\SampleClassLibrary.pdb" />
+    <Content Include="NoteClassLibrary\obj\Debug\SampleClassLibrary.csproj.FileListAbsolute.txt" />
+    <Content Include="NoteClassLibrary\obj\Debug\SampleClassLibrary.dll" />
+    <Content Include="NoteClassLibrary\obj\Debug\SampleClassLibrary.pdb" />
+    <Content Include="NoteClassLibrary\NoteClassLibrary.csproj" />
+    <Content Include="NoteProject\bin\Debug\SampleClassLibrary.dll" />
+    <Content Include="NoteProject\bin\Debug\SampleClassLibrary.pdb" />
+    <Content Include="NoteProject\bin\Debug\SampleProject.exe" />
+    <Content Include="NoteProject\bin\Debug\SampleProject.pdb" />
+    <Content Include="NoteProject\obj\Debug\SampleProject.csproj.FileListAbsolute.txt" />
+    <Content Include="NoteProject\obj\Debug\SampleProject.exe" />
+    <Content Include="NoteProject\obj\Debug\SampleProject.pdb" />
+    <Content Include="NoteProject\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <Content Include="NoteProject\NoteProject.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\COMMIT_EDITMSG" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\logs\refs\remotes\origin\master" />
+    <None Include=".git\objects\03\3d7a5e9e2266753180f4e3a9299f575046701e" />
+    <None Include=".git\objects\05\39f20beff7e1730d26fa6bd1a01efdbef37ff5" />
+    <None Include=".git\objects\05\e259af0a9473338462289596142901090e8a8f" />
+    <None Include=".git\objects\06\04d2eca4954cc290d23c8ebe4ada45e5058dfb" />
+    <None Include=".git\objects\09\f635160f4822b4af9de33f682aaeb72591b09b" />
+    <None Include=".git\objects\2e\267be7c0d1f53c102e1c5b6d61a8b1c94e94c6" />
+    <None Include=".git\objects\3e\759b75bf455ac809d0987d369aab89137b5689" />
+    <None Include=".git\objects\4e\8f10ea4de6851de455e9c76482bb39d556dc94" />
+    <None Include=".git\objects\57\012e67c1307017ce3c25f61f3433dbdd57bead" />
+    <None Include=".git\objects\57\c04c99754549a2f276573fa3133f7a6cf03902" />
+    <None Include=".git\objects\58\8caa9d15f86d865eac5fad2ce7abe224dc318c" />
+    <None Include=".git\objects\58\e1c2d8ef20477dccb94ffe4cdaab9efe934bf9" />
+    <None Include=".git\objects\5d\1f610091c091fc8bbb824975c660619d7436f1" />
+    <None Include=".git\objects\65\db7bc0dcb7ae8e347213eca9c6394c449ca75f" />
+    <None Include=".git\objects\73\1f6de6c291e303814b02808f34140fe560e8e4" />
+    <None Include=".git\objects\83\ba58430a91b3ef04b61b4be9ccc728dc35be3c" />
+    <None Include=".git\objects\86\19ff1aed44e0e84cd60e5a3201cc79add5c46d" />
+    <None Include=".git\objects\87\694f90844cb9068584e987f60eea2f62405ea4" />
+    <None Include=".git\objects\8a\ac0b595f85863111745b20c3d017e771e47b10" />
+    <None Include=".git\objects\98\6c9f9bbc2afa612371abc63cbecaba42edefcb" />
+    <None Include=".git\objects\9a\eba5d777b3ca336e31bea2a803989400723640" />
+    <None Include=".git\objects\a3\2b7af0565e9f3a6f33318d21a27cd4584ea3e0" />
+    <None Include=".git\objects\ac\c05a6faab916b5459eced9559be7df6eb703eb" />
+    <None Include=".git\objects\af\7dbebbacef595e3089c01c05671016c21a8304" />
+    <None Include=".git\objects\af\ebbea2ec071a8b5648264b8c21e3fac88059a6" />
+    <None Include=".git\objects\b4\ea48bd1832f0c1fdb27e6fdc4380db46120324" />
+    <None Include=".git\objects\b8\9a6a60b737539f4c8f9bf230ef92f0a7d3ea08" />
+    <None Include=".git\objects\b9\84915b2301f5e152d3a23422e40776588a493d" />
+    <None Include=".git\objects\bd\5cded00a889ab5388a91dc955f0199cf2331a7" />
+    <None Include=".git\objects\c4\6efdf1b0d8c92076ac35ddff5708079a1e7313" />
+    <None Include=".git\objects\cc\4353c3b1c617abb672466f5eb8f55ba834f536" />
+    <None Include=".git\objects\cf\91c4918d28021336491e0a4b290b372d0e8f6d" />
+    <None Include=".git\objects\d4\8a9b2cfbc7e99c95b34371d1c0ee29f461d817" />
+    <None Include=".git\objects\e0\07f9ec7d5b885a5fa10d7a477cfdb521ebef32" />
+    <None Include=".git\objects\e1\8e2e365ffc48eb0d46674f1d3c4e1bdf8b68b5" />
+    <None Include=".git\objects\e9\62f1526bbc26c98811bfefe54c7d99c3990693" />
+    <None Include=".git\objects\ed\5c1e54ee6804cdb3dc76fd27294b7a02aea328" />
+    <None Include=".git\objects\ef\92d54ad397af620bff1601b06f48aa0c5755db" />
+    <None Include=".git\objects\f7\a86b3068f106821302d6187802592c72548755" />
+    <None Include=".git\objects\ff\8804b2be899d3e329ab2ab3a925585344bcb5b" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".git\refs\remotes\origin\master" />
+    <None Include=".vs\SampleProject\v15\.suo" />
+    <None Include=".vs\SampleProject\v15\Server\sqlite3\db.lock" />
+    <None Include=".vs\SampleProject\v15\Server\sqlite3\storage.ide" />
+    <None Include=".vs\SampleProject\v15\Server\sqlite3\storage.ide-shm" />
+    <None Include=".vs\SampleProject\v15\Server\sqlite3\storage.ide-wal" />
+    <None Include="app.config" />
+    <None Include="NoteClassLibrary\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="NoteClassLibrary\obj\Debug\SampleClassLibrary.csproj.CoreCompileInputs.cache" />
+    <None Include="NoteClassLibrary\obj\Debug\SampleClassLibrary.csprojAssemblyReference.cache" />
+    <None Include="NoteProject\App.config" />
+    <None Include="NoteProject\bin\Debug\SampleProject.exe.config" />
+    <None Include="NoteProject\obj\Debug\build.force" />
+    <None Include="NoteProject\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="NoteProject\obj\Debug\SampleProject.csproj.CopyComplete" />
+    <None Include="NoteProject\obj\Debug\SampleProject.csproj.CoreCompileInputs.cache" />
+    <None Include="NoteProject\obj\Debug\SampleProject.csproj.GenerateResource.cache" />
+    <None Include="NoteProject\obj\Debug\SampleProject.csprojAssemblyReference.cache" />
+    <None Include="NoteProject\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NoteClassLibrary\BaseClass\NotificationObject.cs" />
+    <Compile Include="NoteClassLibrary\Command\RelayCommand.cs" />
+    <Compile Include="NoteClassLibrary\Model\Address.cs" />
+    <Compile Include="NoteClassLibrary\Model\AddressBook.cs" />
+    <Compile Include="NoteClassLibrary\Model\Entry.cs" />
+    <Compile Include="NoteClassLibrary\Model\telephone.cs" />
+    <Compile Include="NoteClassLibrary\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="NoteClassLibrary\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="NoteClassLibrary\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="NoteClassLibrary\Properties\AssemblyInfo.cs" />
+    <Compile Include="NoteProject\AddCalendarNote.xaml.cs">
+      <DependentUpon>AddCalendarNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoteProject\AddNote.xaml.cs">
+      <DependentUpon>AddNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoteProject\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoteProject\CalendarWindow.xaml.cs">
+      <DependentUpon>CalendarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoteProject\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NoteProject\obj\Debug\AddCalendarNote.g.cs" />
+    <Compile Include="NoteProject\obj\Debug\AddCalendarNote.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\AddNote.g.cs" />
+    <Compile Include="NoteProject\obj\Debug\AddNote.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\App.g.cs" />
+    <Compile Include="NoteProject\obj\Debug\App.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\CalendarWindow.g.cs" />
+    <Compile Include="NoteProject\obj\Debug\CalendarWindow.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\DodajNotatkę.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\MainWindow.g.i.cs" />
+    <Compile Include="NoteProject\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="NoteProject\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="NoteProject\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="NoteProject\obj\Debug\Window1.g.i.cs" />
+    <Compile Include="NoteProject\Properties\AssemblyInfo.cs" />
+    <Compile Include="NoteProject\Properties\Resources.Designer.cs" />
+    <Compile Include="NoteProject\Properties\Settings.Designer.cs" />
+    <Compile Include="NoteProject\XML\XMLActions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="NoteProject\AddCalendarNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NoteProject\AddNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NoteProject\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NoteProject\CalendarWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NoteProject\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NoteProject\obj\Debug\SampleProject.g.resources" />
+    <EmbeddedResource Include="NoteProject\obj\Debug\SampleProject.Properties.Resources.resources" />
+    <EmbeddedResource Include="NoteProject\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include="NoteClassLibrary\bin\Release\" />
+    <Folder Include="NoteClassLibrary\obj\Debug\TempPE\" />
+    <Folder Include="NoteProject\bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
