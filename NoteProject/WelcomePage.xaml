@@ -7,6 +7,27 @@
         mc:Ignorable="d"
         Title="WelcomePage" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Welcome in simple notes application!" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="30*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Login" Grid.Column="1" Grid.Row="1"/>
+            <Button Content="Resiter" Grid.Column="1" Grid.Row="3"/>
+        </Grid>
+
     </Grid>
 </Window>
