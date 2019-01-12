@@ -10,18 +10,18 @@ namespace SampleProject.XML
 {
     public static class XMLActions
     {
-        public static SampleClassLibrary.Model.AddressBook Read(string filename)
+        public static NoteClassLibrary.Model.AddressBook Read(string filename)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(SampleClassLibrary.Model.AddressBook));
+            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.AddressBook));
             FileStream fs = new FileStream(filename, FileMode.Open);
-            SampleClassLibrary.Model.AddressBook addressBook;
-            addressBook = (SampleClassLibrary.Model.AddressBook)serializer.Deserialize(fs);
+            NoteClassLibrary.Model.AddressBook addressBook;
+            addressBook = (NoteClassLibrary.Model.AddressBook)serializer.Deserialize(fs);
             return addressBook;
         }
 
-        public static void Save(string filename, SampleClassLibrary.Model.AddressBook addressBook)
+        public static void Save(string filename, NoteClassLibrary.Model.AddressBook addressBook)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(SampleClassLibrary.Model.AddressBook));
+            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.AddressBook));
             TextWriter writer = new StreamWriter(filename);
             serializer.Serialize(writer, addressBook);
             writer.Close();

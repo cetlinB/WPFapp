@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SampleClassLibrary.Command
+namespace NoteClassLibrary.Command
 {
     class RelayCommand : ICommand
     {

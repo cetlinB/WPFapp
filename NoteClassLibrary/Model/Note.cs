@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleClassLibrary.Model
+namespace NoteClassLibrary.Model
 {
     class Note
     {

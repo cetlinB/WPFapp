@@ -4,10 +4,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleClassLibrary.BaseClass;
+using NoteClassLibrary.BaseClass;
 using System.Xml.Serialization;
 
-namespace SampleClassLibrary.Model
+namespace NoteClassLibrary.Model
 {
     public class Entry : NotificationObject
     {

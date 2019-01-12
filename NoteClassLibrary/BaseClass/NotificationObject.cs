@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleClassLibrary.BaseClass
+namespace NoteClassLibrary.BaseClass
 {
     public class NotificationObject : INotifyPropertyChanged
     {

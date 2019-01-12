@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleClassLibrary.BaseClass;
+using NoteClassLibrary.BaseClass;
 
-namespace SampleClassLibrary.Model
+namespace NoteClassLibrary.Model
 {
     class UserNotes : NotificationObject
     {

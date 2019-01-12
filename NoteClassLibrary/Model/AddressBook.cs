@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SampleClassLibrary.BaseClass;
+using NoteClassLibrary.BaseClass;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 
-namespace SampleClassLibrary.Model
+namespace NoteClassLibrary.Model
 {
     [XmlRoot(ElementName ="AddressBook")]
     public class AddressBook : NotificationObject

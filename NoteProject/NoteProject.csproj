@@ -137,11 +137,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\NoteClassLibrary\NoteClassLibrary.csproj">
       <Project>{4d6a61f7-a41b-443e-a65d-a3f9247465b5}</Project>
-      <Name>SampleClassLibrary</Name>
+      <Name>NoteClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
