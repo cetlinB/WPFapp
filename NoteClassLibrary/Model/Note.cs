@@ -3,53 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace NoteClassLibrary.Model
 {
-    class Note
+    public class Note
     {
-        private static int id_counter; 
-        private int id;
-        private int uid;
+        [XmlElement(ElementName = "Title")]
         private string Title;
+        [XmlElement(ElementName = "Content")]
         private string Content;
-        public Note(int user_id , string Title, string Content)
+
+        public string Title1 { get => Title; set => Title = value; }
+        public string Content1 { get => Content; set => Content = value; }
+
+        internal Note( string Title, string Content)
         {
-            this.id = id_counter;
-            id_counter++;
-            this.uid = user_id;
-            this.Title = Title;
+            this.Title1 = Title;
             this.Content = Content;
         }
 
-        int getID()
-        {
-            return this.id;
-        }
 
-        int getUID()
-        {
-            return this.uid;
-        }
 
-        string getTitle()
-        {
-            return this.Title;
-        }
-
-        string getContent()
-        {
-            return this.Title;
-        }
-
-        void updateTitle(string Title)
-        {
-            this.Title = Title;
-        }
-
-        void updateContent(string Content)
-        {
-            this.Content = Content;
-        }
     }
 }

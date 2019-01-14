@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SampleProject.Properties
+namespace NoteProject.Properties
 {
 
 

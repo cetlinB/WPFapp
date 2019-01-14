@@ -6,12 +6,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace SampleProject
+namespace NoteProject
 {
     /// <summary>
     /// Logika interakcji dla klasy App.xaml
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

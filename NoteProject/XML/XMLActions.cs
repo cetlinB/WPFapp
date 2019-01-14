@@ -6,24 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SampleProject.XML
+namespace NoteProject
 {
     public static class XMLActions
     {
-        public static NoteClassLibrary.Model.AddressBook Read(string filename)
+        public static NoteClassLibrary.Model.User Read(string filename)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.AddressBook));
+            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.User));
             FileStream fs = new FileStream(filename, FileMode.Open);
-            NoteClassLibrary.Model.AddressBook addressBook;
-            addressBook = (NoteClassLibrary.Model.AddressBook)serializer.Deserialize(fs);
-            return addressBook;
+            NoteClassLibrary.Model.User user;
+            user = (NoteClassLibrary.Model.User)serializer.Deserialize(fs);
+            return user;
         }
 
-        public static void Save(string filename, NoteClassLibrary.Model.AddressBook addressBook)
+        public static void Save(string filename, NoteClassLibrary.Model.User user)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.AddressBook));
+            XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.User));
             TextWriter writer = new StreamWriter(filename);
-            serializer.Serialize(writer, addressBook);
+            serializer.Serialize(writer, user);
             writer.Close();
         }
     }

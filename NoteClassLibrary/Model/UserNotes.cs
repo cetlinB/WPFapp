@@ -1,59 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using NoteClassLibrary.BaseClass;
 
 namespace NoteClassLibrary.Model
 {
-    class UserNotes : NotificationObject
+    public class UserNotes : NotificationObject
     {
-        private Note[] notes;
+        [XmlElement(ElementName = "Notes")]
+        private ObservableCollection<Note> notes;
         private int amount;
 
-        UserNotes()
+        public UserNotes()
         {
-            notes = new Note[5];
+            Notes = new ObservableCollection<Note>();
             amount = 0;
         }
 
-        internal void addNote(Note note)
-        {
-            if( this.amount >= this.notes.Length)
-            {
-                resizeNotes();
-            }
+        internal ObservableCollection<Note> Notes { get => notes; set => notes = value; }
 
-            notes[amount] = note;
+        internal void AddNote(Note note)
+        {
+            Notes.Add(note);
             amount++;
         }
 
-        internal void removeNote(int index)
+        internal void RemoveNote(Note note)
         {
-            if (index == amount) {
-                this.notes[index] = null;
-                this.amount--;
-            }
-            else if (index > amount)
+            if (amount > 0)
             {
-                Console.Write("Index out of range.");
+                Notes.Remove(note);
+                amount--;
             }
-            else if( index < amount)
-            {
-                while(index < amount)
-                {
-                    this.notes[index] = this.notes[index++];
-                }
-                this.amount--;
-            }
-        }
-
-        internal void resizeNotes()
-        {
-            Note[] temp = new Note[this.notes.Length * 2];
-            Array.Copy(this.notes, temp, amount);
-            this.notes = temp;
         }
     }
 }
