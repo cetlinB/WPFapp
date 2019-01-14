@@ -16,19 +16,24 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:FieldModifier="Title" Text="Tytuł" Grid.Column="2" Grid.Row="0"/>
+        <TextBlock Name="Title" Text="Tytuł" Grid.Column="2" Grid.Row="0"/>
         <TextBlock Text="Ostatnie notatki" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock x:FieldModifier="Content" Text="Tu będzie tekst notatki" Grid.Column="2" Grid.Row="1"/>
+        <TextBlock Name="Content" Text="Tu będzie tekst notatki" Grid.Column="2" Grid.Row="1"/>
         <TextBlock Text="Menu" Grid.Column="0" Grid.Row="0"/>
         <Grid Grid.Column="0" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
-            <Button Content="Dodaj" Grid.Row="0"/>
-            <Button Content="Edytuj" Grid.Row="1"/>
-            <Button Content="Dodaj do kalendarza" Grid.Row="2"/>
+            <Button Click="Button_Click" Content="Dodaj" Grid.Row="1"/>
+            <Button Click="Button_Click_1" Content="Edytuj" Grid.Row="3"/>
+            <Button Click="Button_Click_2" Content="Dodaj do kalendarza" Grid.Row="2"/>
+            <Button Click="Button_Click_3" Content="Kalendarz" Grid.Row="0"/>
+            <Button Click="Button_Click_4" Content="Usuń" Grid.Row="4"/>
+            
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -37,10 +42,10 @@
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Nothing" Grid.Row="0"/>
-            <TextBlock Text="Nothing" Grid.Row="1"/>
-            <TextBlock Text="Nothing" Grid.Row="2"/>
-            <TextBlock Text="Nothing" Grid.Row="3"/>
+            <TextBlock Name="Note1" Text="Nothing" Grid.Row="0"/>
+            <TextBlock Name="Note2" Text="Nothing" Grid.Row="1"/>
+            <TextBlock Name="Note3" Text="Nothing" Grid.Row="2"/>
+            <TextBlock Name="Note4" Text="Nothing" Grid.Row="3"/>
         </Grid>
     </Grid>
 </Window>

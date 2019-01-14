@@ -17,9 +17,9 @@ namespace NoteProject
     /// <summary>
     /// Logika interakcji dla klasy Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AddNote : Window
     {
-        public Window1()
+        public AddNote()
         {
             InitializeComponent();
         }

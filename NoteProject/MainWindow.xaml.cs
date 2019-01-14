@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteClassLibrary.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,40 +21,42 @@ namespace NoteProject
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
+            User = XMLActions.Read("library.xml");
         }
 
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
-        public void InitializeComponent()
+        public object User { get; }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (_contentLoaded)
-            {
-                return;
-            }
-            _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SampleProject;component/mainwindow.xaml", System.UriKind.Relative);
-
-#line 1 "..\..\MainWindow.xaml"
-            System.Windows.Application.LoadComponent(this, resourceLocater);
-
-#line default
-#line hidden
+            AddNote addNote = new AddNote();
+            addNote.Show();
         }
 
-        /// <summary>
-        /// Application Entry Point.
-        /// </summary>
-        [System.STAThreadAttribute()]
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
-        public static void Main()
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NoteProject.App app = new NoteProject.App();
-            app.InitializeComponent();
-            app.Run();
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AddCalendarNote addCalendarNote = new AddCalendarNote();
+            addCalendarNote.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            CalendarWindow showCalendar = new CalendarWindow();
+            showCalendar.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
