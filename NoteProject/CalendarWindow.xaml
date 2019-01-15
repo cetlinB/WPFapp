@@ -26,24 +26,8 @@
             <Button Content="Next Month" Grid.Column="3" Click="NextMonth"/>
             <Button Content="Next Year" Grid.Column="4" Click="NextYear"/>
         </Grid>
-        <Grid Grid.Row="1" x:Name="DaysOfTheMonth">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="5*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="wlodek"/>
-        </Grid>
+        <DataGrid Grid.Row="1" x:Name="DaysOfTheMonth" AutoGenerateColumns="True">
+            
+        </DataGrid>
     </Grid>
 </Window>
