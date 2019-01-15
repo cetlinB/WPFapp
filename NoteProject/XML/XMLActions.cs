@@ -15,7 +15,14 @@ namespace NoteProject
             XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.User));
             FileStream fs = new FileStream(filename, FileMode.Open);
             NoteClassLibrary.Model.User user;
-            user = (NoteClassLibrary.Model.User)serializer.Deserialize(fs);
+            try
+            {
+                user = (NoteClassLibrary.Model.User)serializer.Deserialize(fs);
+            }
+            catch
+            {
+                user = new NoteClassLibrary.Model.User();
+            }
             return user;
         }
 

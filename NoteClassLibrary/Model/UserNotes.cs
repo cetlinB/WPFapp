@@ -20,7 +20,7 @@ namespace NoteClassLibrary.Model
             amount = 0;
         }
 
-        internal ObservableCollection<Note> Notes { get => notes; set => notes = value; }
+        public ObservableCollection<Note> Notes { get => notes; set => notes = value; }
 
         internal void AddNote(Note note)
         {
@@ -35,6 +35,20 @@ namespace NoteClassLibrary.Model
                 Notes.Remove(note);
                 amount--;
             }
+        }
+
+        internal Note GetNote(int index)
+        {
+            Note temp;
+            try
+            {
+                temp = notes.ElementAt<Note>(index);
+            }
+            catch
+            {
+                temp = null;
+            }
+            return temp;
         }
     }
 }
