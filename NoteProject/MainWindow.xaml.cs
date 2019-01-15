@@ -24,19 +24,24 @@ namespace NoteProject
         User thisUser = null;
         List<Note> mainNotes = new List<Note>();
         private int firstNoteOnPage;
-        Note currentNote = new Note("","", new DateTime?());
+        private int currentNote;
+        private DateTime timeOffset = DateTime.Now;
 
         public MainWindow()
         {
+            currentNote = -1;
             firstNoteOnPage = 0;
             InitializeComponent();
+            NoteContent.Text = "";
+            NoteTitle.Text = "";
+            NoteDate.Text = "";
             thisUser = XMLActions.Read("library.xml");
             int i = 0;
             do mainNotes.Add(thisUser.GetNote(i++)); while (mainNotes.Last() != null);
-            ReweindNotes();
+            RewindNotes();
         }
 
-        private void ReweindNotes()
+        private void RewindNotes()
         {
             try
             {
@@ -76,18 +81,25 @@ namespace NoteProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddNote addNote = new AddNote();
+            AddNote addNote = new AddNote(thisUser);
             addNote.Title = "Add new note.";
             addNote.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AddNote addNote = new AddNote();
-            addNote.Title = "Edit note.";
-            addNote.newTitle.Text = NoteTitle.Text;
-            addNote.newContent.Text = NoteContent.Text;
-            addNote.Show();
+            try
+            {
+                AddNote addNote = new AddNote(thisUser, currentNote);
+                addNote.Title = "Edit note.";
+                addNote.newTitle.Text = NoteTitle.Text;
+                addNote.newContent.Text = NoteContent.Text;
+                addNote.Show();
+            }
+            catch
+            {
+                ;
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -103,30 +115,78 @@ namespace NoteProject
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            currentNote = thisUser.GetNote(firstNoteOnPage + 3);
-            NoteTitle.Text = Note3.Text;
-            NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 3).Content1;
+            ReloadPage();
+            try
+            {
+                NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 3).Date1.ToString();
+                NoteTitle.Text = Note3.Text;
+                NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 3).Content1;
+                currentNote = firstNoteOnPage + 3;
+            }
+            catch
+            {
+                currentNote = -1;
+                NoteDate.Text = timeOffset.ToString();
+                NoteTitle.Text = "";
+                NoteContent.Text = "";
+            }
         }
 
         private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            currentNote = thisUser.GetNote(firstNoteOnPage + 2);
-            NoteTitle.Text = Note2.Text;
-            NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 2).Content1;
+            ReloadPage();
+            try
+            {
+                NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 2).Date1.ToString();
+                NoteTitle.Text = Note2.Text;
+                NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 2).Content1;
+                currentNote = firstNoteOnPage + 2;
+            }
+            catch
+            {
+                currentNote = -1;
+                NoteDate.Text = timeOffset.ToString();
+                NoteTitle.Text = "";
+                NoteContent.Text = "";
+            }
         }
 
         private void Grid_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
         {
-            currentNote = thisUser.GetNote(firstNoteOnPage + 1);
-            NoteTitle.Text = Note1.Text;
-            NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 1).Content1;
+            ReloadPage();
+            try
+            {
+                NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 1).Date1.ToString();
+                NoteTitle.Text = Note1.Text;
+                NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 1).Content1;
+                currentNote = firstNoteOnPage + 1;
+            }
+            catch
+            {
+                currentNote = -1;
+                NoteDate.Text = timeOffset.ToString();
+                NoteTitle.Text = "";
+                NoteContent.Text = "";
+            }
         }
 
         private void Grid_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
         {
-            currentNote = thisUser.GetNote(firstNoteOnPage);
-            NoteTitle.Text = Note0.Text;
-            NoteContent.Text = thisUser.GetNote(firstNoteOnPage + 0).Content1;
+            ReloadPage();
+            try
+            {
+                NoteDate.Text = thisUser.GetNote(firstNoteOnPage).Date1.ToString();
+                NoteTitle.Text = Note0.Text;
+                NoteContent.Text = thisUser.GetNote(firstNoteOnPage).Content1;
+                currentNote = firstNoteOnPage;
+            }
+            catch
+            {
+                currentNote = -1;
+                NoteDate.Text = timeOffset.ToString();
+                NoteTitle.Text = "";
+                NoteContent.Text = "";
+            }
         }
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -135,8 +195,11 @@ namespace NoteProject
             {
                 if (firstNoteOnPage <= 0)
                     return;
-                firstNoteOnPage--;
-                ReweindNotes();
+                else
+                {
+                    firstNoteOnPage--;
+                    RewindNotes();
+                }
             }
             else if (e.Delta < 0)
             {
@@ -147,6 +210,9 @@ namespace NoteProject
                 }
                 catch
                 {
+                    ReloadPage();
+                    if (firstNoteOnPage <= 0)
+                        return;
                     firstNoteOnPage--;
                 }
                 try
@@ -155,6 +221,9 @@ namespace NoteProject
                 }
                 catch
                 {
+                    ReloadPage();
+                    if (firstNoteOnPage <= 0)
+                        return;
                     firstNoteOnPage--;
                 }
                 try
@@ -163,6 +232,9 @@ namespace NoteProject
                 }
                 catch
                 {
+                    ReloadPage();
+                    if (firstNoteOnPage <= 0)
+                        return;
                     firstNoteOnPage--;
                 }
                 try
@@ -171,7 +243,26 @@ namespace NoteProject
                 }
                 catch
                 {
+                    ReloadPage();
+                    if (firstNoteOnPage <= 0)
+                        return;
                     firstNoteOnPage--;
+                }
+            }
+        }
+
+        private void ReloadPage()
+        {
+            if (timeOffset.AddTicks(3000000) < DateTime.Now)
+            {
+                try
+                {
+                    thisUser = XMLActions.Read("library.xml");
+                    timeOffset = DateTime.Now;
+                }
+                catch
+                {
+                    ;
                 }
             }
         }

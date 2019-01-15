@@ -21,24 +21,37 @@ namespace NoteProject
     public partial class AddNote : Window
     {
         User user = null;
-        public AddNote()
+        private int current;
+        public AddNote(User user)
         {
+            this.user = user;
             InitializeComponent();
-            user = XMLActions.Read("library.xml");
         }
 
         public AddNote(User user, int currentID)
         {
-            this.user = user;
-            InitializeComponent();
-            newTitle.Text = user.GetNote(currentID).Title1;
-            newContent.Text = user.GetNote(currentID).Content1;
-            newDate.SelectedDate = user.GetNote(currentID).Date1;
+            if (currentID > -1)
+            {
+                this.user = user;
+                InitializeComponent();
+                newTitle.Text = user.GetNote(currentID).Title1;
+                newContent.Text = user.GetNote(currentID).Content1;
+                newDate.SelectedDate = user.GetNote(currentID).Date1;
+                current = currentID;
+            }
+            else throw new IndexOutOfRangeException();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            user.AddNote(new Note(newTitle.Text, newContent.Text, newDate.SelectedDate));
+            if (Title == "Add new note.")
+            {
+                user.AddNote(new Note(newTitle.Text, newContent.Text, newDate.SelectedDate));
+            } else
+            {
+                user.UpdateNote(current, new Note(newTitle.Text, newContent.Text, newDate.SelectedDate));
+            }
             XMLActions.Save("library.xml", user);
             Close();
         }

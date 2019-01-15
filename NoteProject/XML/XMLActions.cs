@@ -23,7 +23,8 @@ namespace NoteProject
             {
                 user = new NoteClassLibrary.Model.User();
             }
-            return user;
+            fs.Close();
+            return user; 
         }
 
         public static void Save(string filename, NoteClassLibrary.Model.User user)

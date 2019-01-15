@@ -50,5 +50,17 @@ namespace NoteClassLibrary.Model
             }
             return temp;
         }
+
+        internal void UpdateNote(int index, Note note)
+        {
+            try
+            {
+                Notes.Insert(index, note);
+            }
+            catch
+            {
+                ;
+            }
+        }
     }
 }

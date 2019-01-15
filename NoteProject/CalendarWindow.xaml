@@ -20,13 +20,13 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Prev. Year" Grid.Column="0"/>
-            <Button Content="Prev. Month" Grid.Column="1"/>
-            <TextBlock Text="Month name" Grid.Column="2"/>
-            <Button Content="Next Month" Grid.Column="3"/>
-            <Button Content="Next Year" Grid.Column="4"/>
+            <Button Content="Prev. Year" Grid.Column="0" Click="PreviousYear"/>
+            <Button Content="Prev. Month" Grid.Column="1" Click="PreviousMonth"/>
+            <TextBlock x:Name="MonthName" Text="Month name" Grid.Column="2"/>
+            <Button Content="Next Month" Grid.Column="3" Click="NextMonth"/>
+            <Button Content="Next Year" Grid.Column="4" Click="NextYear"/>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="DaysOfTheMonth">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
@@ -43,7 +43,7 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            
+            <TextBlock x:Name="wlodek"/>
         </Grid>
     </Grid>
 </Window>
