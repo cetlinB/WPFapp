@@ -7,8 +7,8 @@
     <ProjectGuid>{4D6A61F7-A41B-443E-A65D-A3F9247465B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleClassLibrary</RootNamespace>
-    <AssemblyName>SampleClassLibrary</AssemblyName>
+    <RootNamespace>NoteClassLibrary</RootNamespace>
+    <AssemblyName>NoteClassLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -43,11 +43,8 @@
   <ItemGroup>
     <Compile Include="BaseClass\NotificationObject.cs" />
     <Compile Include="Command\RelayCommand.cs" />
-    <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\AddressBook.cs" />
-    <Compile Include="Model\Entry.cs" />
+    <Compile Include="Model\Options.cs" />
     <Compile Include="Model\Note.cs" />
-    <Compile Include="Model\Telephone.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserNotes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

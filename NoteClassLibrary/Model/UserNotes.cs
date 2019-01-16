@@ -1,8 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using NoteClassLibrary.BaseClass;
 
@@ -12,12 +10,10 @@ namespace NoteClassLibrary.Model
     {
         [XmlElement(ElementName = "Notes")]
         private ObservableCollection<Note> notes;
-        private int amount;
 
         public UserNotes()
         {
             Notes = new ObservableCollection<Note>();
-            amount = 0;
         }
 
         public ObservableCollection<Note> Notes { get => notes; set => notes = value; }
@@ -25,15 +21,22 @@ namespace NoteClassLibrary.Model
         internal void AddNote(Note note)
         {
             Notes.Add(note);
-            amount++;
         }
 
         internal void RemoveNote(Note note)
         {
-            if (amount > 0)
+            Notes.Remove(note);
+        }
+
+        internal void RemoveNote(int index)
+        {
+            try
             {
-                Notes.Remove(note);
-                amount--;
+                Notes.RemoveAt(index);
+            }
+            catch
+            {
+                ;
             }
         }
 
@@ -61,6 +64,19 @@ namespace NoteClassLibrary.Model
             {
                 ;
             }
+        }
+
+        internal List<Note> GetAllNotesFromMonth(int year ,int month)
+        {
+            List<Note> list = new List<Note>();
+            foreach(Note a in notes)
+            {
+                if(a.Date1.Year == year && a.Date1.Month == month)
+                {
+                    list.Add(a);
+                }
+            }
+            return list;
         }
     }
 }

@@ -12,6 +12,10 @@ namespace NoteProject
     {
         public static NoteClassLibrary.Model.User Read(string filename)
         {
+            if (!File.Exists(filename))
+            {
+                File.WriteAllText(filename,"");
+            }
             XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.User));
             FileStream fs = new FileStream(filename, FileMode.Open);
             NoteClassLibrary.Model.User user;

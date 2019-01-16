@@ -1,18 +1,7 @@
 ﻿using NoteClassLibrary.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace NoteProject
 {
@@ -22,58 +11,65 @@ namespace NoteProject
     public partial class MainWindow : Window
     {
         User thisUser = null;
-        List<Note> mainNotes = new List<Note>();
         private int firstNoteOnPage;
         private int currentNote;
+        private NoteClassLibrary.Model.Options options;
         private DateTime timeOffset = DateTime.Now;
 
         public MainWindow()
         {
+            this.options = XMLOptions.Read("rootLibrary.xml");
             currentNote = -1;
             firstNoteOnPage = 0;
             InitializeComponent();
             NoteContent.Text = "";
             NoteTitle.Text = "";
             NoteDate.Text = "";
-            thisUser = XMLActions.Read("library.xml");
-            int i = 0;
-            do mainNotes.Add(thisUser.GetNote(i++)); while (mainNotes.Last() != null);
+            thisUser = XMLActions.Read(options.Filename);
             RewindNotes();
         }
 
         private void RewindNotes()
         {
-            try
+            if (thisUser.GetNote(firstNoteOnPage) != null)
             {
-                Note0.Text = mainNotes.ElementAt(firstNoteOnPage).Title1;
+                Note0.Text = thisUser.GetNote(firstNoteOnPage).Title1;
+                Date0.Text = thisUser.GetNote(firstNoteOnPage).Date1.ToLongDateString();
             }
-            catch
+            else
             {
                 Note0.Text = "";
+                Date0.Text = "";
             }
-            try
+            if (thisUser.GetNote(firstNoteOnPage + 1) != null)
             {
-                Note1.Text = mainNotes.ElementAt(firstNoteOnPage + 1).Title1;
+                Note1.Text = thisUser.GetNote(firstNoteOnPage + 1).Title1;
+                Date1.Text = thisUser.GetNote(firstNoteOnPage + 1).Date1.ToLongDateString();
             }
-            catch
+            else
             {
                 Note1.Text = "";
+                Date1.Text = "";
             }
-            try
+            if (thisUser.GetNote(firstNoteOnPage + 2) != null)
             {
-                Note2.Text = mainNotes.ElementAt(firstNoteOnPage + 2).Title1;
+                Note2.Text = thisUser.GetNote(firstNoteOnPage + 2).Title1;
+                Date2.Text = thisUser.GetNote(firstNoteOnPage + 2).Date1.ToLongDateString();
             }
-            catch
+            else
             {
                 Note2.Text = "";
+                Date2.Text = "";
             }
-            try
+            if (thisUser.GetNote(firstNoteOnPage + 3) != null)
             {
-                Note3.Text = mainNotes.ElementAt(firstNoteOnPage + 3).Title1;
+                Note3.Text = thisUser.GetNote(firstNoteOnPage + 3).Title1;
+                Date3.Text = thisUser.GetNote(firstNoteOnPage + 3).Date1.ToLongDateString();
             }
-            catch
+            else
             {
                 Note3.Text = "";
+                Date3.Text = "";
             }
         }
 
@@ -81,7 +77,7 @@ namespace NoteProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddNote addNote = new AddNote(thisUser);
+            AddNote addNote = new AddNote(thisUser,options.Filename);
             addNote.Title = "Add new note.";
             addNote.Show();
         }
@@ -90,7 +86,7 @@ namespace NoteProject
         {
             try
             {
-                AddNote addNote = new AddNote(thisUser, currentNote);
+                AddNote addNote = new AddNote(thisUser, currentNote, options.Filename);
                 addNote.Title = "Edit note.";
                 addNote.newTitle.Text = NoteTitle.Text;
                 addNote.newContent.Text = NoteContent.Text;
@@ -104,18 +100,26 @@ namespace NoteProject
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            CalendarWindow showCalendar = new CalendarWindow();
+            CalendarWindow showCalendar = new CalendarWindow(this.thisUser);
             showCalendar.Show();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-
+            if (currentNote > -1)
+            {
+                NoteContent.Text = "";
+                NoteTitle.Text = "";
+                NoteDate.Text = "";
+                thisUser.RemoveNote(currentNote);
+                XMLActions.Save(options.Filename, this.thisUser);
+                currentNote = -1;
+            }
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            ReloadPage();
+            //ReloadPage();
             try
             {
                 NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 3).Date1.ToString();
@@ -126,7 +130,7 @@ namespace NoteProject
             catch
             {
                 currentNote = -1;
-                NoteDate.Text = timeOffset.ToString();
+                NoteDate.Text = "";
                 NoteTitle.Text = "";
                 NoteContent.Text = "";
             }
@@ -134,7 +138,7 @@ namespace NoteProject
 
         private void Grid_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            ReloadPage();
+            //ReloadPage();
             try
             {
                 NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 2).Date1.ToString();
@@ -145,7 +149,7 @@ namespace NoteProject
             catch
             {
                 currentNote = -1;
-                NoteDate.Text = timeOffset.ToString();
+                NoteDate.Text = "";
                 NoteTitle.Text = "";
                 NoteContent.Text = "";
             }
@@ -153,7 +157,7 @@ namespace NoteProject
 
         private void Grid_MouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
         {
-            ReloadPage();
+            //ReloadPage();
             try
             {
                 NoteDate.Text = thisUser.GetNote(firstNoteOnPage + 1).Date1.ToString();
@@ -164,7 +168,7 @@ namespace NoteProject
             catch
             {
                 currentNote = -1;
-                NoteDate.Text = timeOffset.ToString();
+                NoteDate.Text = "";
                 NoteTitle.Text = "";
                 NoteContent.Text = "";
             }
@@ -172,7 +176,7 @@ namespace NoteProject
 
         private void Grid_MouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
         {
-            ReloadPage();
+            //ReloadPage();
             try
             {
                 NoteDate.Text = thisUser.GetNote(firstNoteOnPage).Date1.ToString();
@@ -183,7 +187,7 @@ namespace NoteProject
             catch
             {
                 currentNote = -1;
-                NoteDate.Text = timeOffset.ToString();
+                NoteDate.Text = "";
                 NoteTitle.Text = "";
                 NoteContent.Text = "";
             }
@@ -191,10 +195,13 @@ namespace NoteProject
 
         private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if(e.Delta > 0)
+            if (e.Delta > 0)
             {
                 if (firstNoteOnPage <= 0)
+                {
+                    ReloadPage();
                     return;
+                }
                 else
                 {
                     firstNoteOnPage--;
@@ -204,46 +211,47 @@ namespace NoteProject
             else if (e.Delta < 0)
             {
                 firstNoteOnPage++;
-                try
+                if(thisUser.GetNote(firstNoteOnPage + 3)!=null)
                 {
-                    Note3.Text = mainNotes.ElementAt(firstNoteOnPage + 3).Title1;
+                    Note3.Text = thisUser.GetNote(firstNoteOnPage + 3).Title1;
+                    Date3.Text = thisUser.GetNote(firstNoteOnPage + 3).Date1.ToLongDateString();
                 }
-                catch
+                else
                 {
                     ReloadPage();
                     if (firstNoteOnPage <= 0)
                         return;
                     firstNoteOnPage--;
                 }
-                try
+                if (thisUser.GetNote(firstNoteOnPage + 2) != null)
                 {
-                    Note2.Text = mainNotes.ElementAt(firstNoteOnPage + 2).Title1;
+                    Note2.Text = thisUser.GetNote(firstNoteOnPage + 2).Title1;
+                    Date2.Text = thisUser.GetNote(firstNoteOnPage + 2).Date1.ToLongDateString();
                 }
-                catch
+                else
                 {
-                    ReloadPage();
                     if (firstNoteOnPage <= 0)
                         return;
                     firstNoteOnPage--;
                 }
-                try
+                if (thisUser.GetNote(firstNoteOnPage + 1) != null)
                 {
-                    Note1.Text = mainNotes.ElementAt(firstNoteOnPage + 1).Title1;
+                    Note1.Text = thisUser.GetNote(firstNoteOnPage + 1).Title1;
+                    Date1.Text = thisUser.GetNote(firstNoteOnPage + 1).Date1.ToLongDateString();
                 }
-                catch
+                else
                 {
-                    ReloadPage();
                     if (firstNoteOnPage <= 0)
                         return;
                     firstNoteOnPage--;
                 }
-                try
+                if (thisUser.GetNote(firstNoteOnPage + 3) != null)
                 {
-                    Note0.Text = mainNotes.ElementAt(firstNoteOnPage).Title1;
+                    Note0.Text = thisUser.GetNote(firstNoteOnPage).Title1;
+                    Date0.Text = thisUser.GetNote(firstNoteOnPage).Date1.ToLongDateString();
                 }
-                catch
+                else
                 {
-                    ReloadPage();
                     if (firstNoteOnPage <= 0)
                         return;
                     firstNoteOnPage--;
@@ -253,18 +261,25 @@ namespace NoteProject
 
         private void ReloadPage()
         {
-            if (timeOffset.AddTicks(3000000) < DateTime.Now)
+            if (timeOffset.AddTicks(300000) < DateTime.Now)
             {
                 try
                 {
-                    thisUser = XMLActions.Read("library.xml");
+                    thisUser = XMLActions.Read(options.Filename);
                     timeOffset = DateTime.Now;
+                    this.options = XMLOptions.Read(NoteClassLibrary.Model.Options.RootOptions);
                 }
                 catch
                 {
                     ;
                 }
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Options options = new Options(this.options);
+            options.Show();
         }
     }
 }

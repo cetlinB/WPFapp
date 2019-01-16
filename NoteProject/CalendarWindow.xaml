@@ -20,14 +20,14 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Prev. Year" Grid.Column="0" Click="PreviousYear"/>
-            <Button Content="Prev. Month" Grid.Column="1" Click="PreviousMonth"/>
-            <TextBlock x:Name="MonthName" Text="Month name" Grid.Column="2"/>
-            <Button Content="Next Month" Grid.Column="3" Click="NextMonth"/>
-            <Button Content="Next Year" Grid.Column="4" Click="NextYear"/>
+            <Button Content="Poprzedni Rok" Grid.Column="0" Click="PreviousYear"/>
+            <Button Content="Poprzedni Miesiąc" Grid.Column="1" Click="PreviousMonth"/>
+            <TextBlock x:Name="MonthName" Text="Month name" Grid.Column="2" Background="{StaticResource OnlyTitle}" TextAlignment="Center"/>
+            <Button Content="Następny Miesiąc" Grid.Column="3" Click="NextMonth"/>
+            <Button Content="Następny Rok" Grid.Column="4" Click="NextYear"/>
         </Grid>
-        <DataGrid Grid.Row="1" x:Name="DaysOfTheMonth" AutoGenerateColumns="True">
+        <Grid Grid.Row="1" x:Name="DaysOfTheMonth" ShowGridLines="True" Background="{StaticResource OnlyDate}">
             
-        </DataGrid>
+        </Grid>
     </Grid>
 </Window>

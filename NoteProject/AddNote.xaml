@@ -21,20 +21,20 @@
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="70*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Note Date:" Grid.Column="0" Grid.Row="0"/>
-            <TextBlock Text="Note Title:" Grid.Column="0" Grid.Row="1"/>
-            <TextBlock Text="Note Content:" Grid.Column="0" Grid.Row="2"/>
-            <DatePicker x:Name="newDate" Grid.Column="1" Grid.Row="0"/>
-            <TextBox x:Name="newTitle" Grid.Column="1" Grid.Row="1"/>
-            <TextBox x:Name="newContent" Grid.Column="1" Grid.Row="2"/>
+            <TextBlock Text="Data notki:" Grid.Column="0" Grid.Row="0" Background="{StaticResource Description}" FontSize="16"/>
+            <TextBlock Text="Tytuł notki:" Grid.Column="0" Grid.Row="1" Background="{StaticResource Description}" FontSize="16"/>
+            <TextBlock Text="Tekst notki:" Grid.Column="0" Grid.Row="2" Background="{StaticResource Description}" FontSize="16"/>
+            <DatePicker x:Name="newDate" Grid.Column="1" Grid.Row="0" Background="{StaticResource OnlyDate}" FontSize="16"/>
+            <TextBox x:Name="newTitle" Grid.Column="1" Grid.Row="1" Background="{StaticResource OnlyTitle}" FontSize="16"/>
+            <TextBox x:Name="newContent" Grid.Column="1" Grid.Row="2" Background="{StaticResource TCback}" FontSize="14"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15*"/>
                 <ColumnDefinition Width="15*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Save" Grid.Column="0" Click="Button_Click"/>
-            <Button Content="Cancel" Grid.Column="1" Click="Button_Click_1"/>
+            <Button Content="Save" Grid.Column="0" Click="Button_Click" FontSize="16"/>
+            <Button Content="Cancel" Grid.Column="1" Click="Button_Click_1" FontSize="16"/>
         </Grid>
 
     </Grid>

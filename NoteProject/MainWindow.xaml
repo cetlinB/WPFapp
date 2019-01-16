@@ -21,23 +21,25 @@
                 <ColumnDefinition Width="70*"/>
                 <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="NoteDate"  Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Column="1"/>
-            <TextBlock x:Name="NoteTitle" Text="Tytuł" Grid.Column="0"/>
+            <TextBlock x:Name="NoteDate"  Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" Grid.Column="1" Background="{StaticResource OnlyDate}" TextAlignment="Center" FontSize="16"/>
+            <TextBlock x:Name="NoteTitle" Text="Tytuł" Grid.Column="0" Background="{StaticResource OnlyTitle}" TextAlignment="Center" FontSize="16"/>
         </Grid>
-        <TextBlock x:Name="Title2" Text="Ostatnie notatki" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock x:Name="NoteContent" Text="Tu będzie tekst notatki" Grid.Column="2" Grid.Row="1"/>
-        <TextBlock x:Name="Title1" Text="Menu" Grid.Column="0" Grid.Row="0"/>
+        <TextBlock x:Name="Title2" Text="Ostatnie notatki" Grid.Row="0" Grid.Column="1" Background="{StaticResource Description}" TextAlignment="Center" FontSize="16"/>
+        <TextBlock x:Name="NoteContent" Text="Tu będzie tekst notatki" Grid.Column="2" Grid.Row="1" Background="{StaticResource TCback}" TextAlignment="Justify" FontSize="14"/>
+        <TextBlock x:Name="Title1" Text="Menu" Grid.Column="0" Grid.Row="0" Background="{StaticResource Description}" TextAlignment="Center" FontSize="16"/>
         <Grid Grid.Column="0" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="15*"/>
+                <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
-            <Button Click="Button_Click" Content="Dodaj" Grid.Row="1"/>
-            <Button Click="Button_Click_1" Content="Edytuj" Grid.Row="2"/>
-            <Button Click="Button_Click_3" Content="Kalendarz" Grid.Row="0"/>
-            <Button Click="Button_Click_4" Content="Usuń" Grid.Row="3"/>
+            <Button Click="Button_Click" Content="Dodaj" Grid.Row="1" FontSize="16"/>
+            <Button Click="Button_Click_1" Content="Edytuj" Grid.Row="2" FontSize="16"/>
+            <Button Click="Button_Click_3" Content="Kalendarz" Grid.Row="0" FontSize="16"/>
+            <Button Click="Button_Click_4" Content="Usuń" Grid.Row="3" FontSize="16"/>
+            <Button Click="Button_Click_2"  Content="Opcje" Grid.Row="4" FontSize="16"/>
             
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1" MouseWheel="Grid_MouseWheel">
@@ -47,38 +49,46 @@
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" MouseLeftButtonDown="Grid_MouseLeftButtonDown_3">
+            <Border BorderBrush="{StaticResource DTframe}" BorderThickness="4" Grid.Row="0">
+            <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown_3"  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="60*"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="Date0" Text="Data" Grid.Row="0" />
-                <TextBlock x:Name="Note0" Text="Nothing" Grid.Row="1"/>
+                    <TextBlock x:Name="Date0" Text="Data" Grid.Row="0" Background="{StaticResource OnlyDate}" FontSize="16"/>
+                    <TextBlock x:Name="Note0" Text="Nothing" Grid.Row="1" Background="{StaticResource OnlyTitle}" FontSize="16"/>
             </Grid>
-            <Grid Grid.Row="1" MouseLeftButtonDown="Grid_MouseLeftButtonDown_2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="60*"/>
-                </Grid.RowDefinitions>
-                <TextBlock x:Name="Date1" Text="Data" Grid.Row="0"/>
-                <TextBlock x:Name="Note1" Text="Nothing" Grid.Row="1"/>
-            </Grid>
-            <Grid Grid.Row="2" MouseLeftButtonDown="Grid_MouseLeftButtonDown_1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="60*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Name="Date2" Text="Data" Grid.Row="0"/>
-                <TextBlock Name="Note2" Text="Nothing" Grid.Row="1"/>
-            </Grid>
-            <Grid Grid.Row="3" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="60*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Name="Date3" Text="Data" Grid.Row="0"/>
-                <TextBlock Name="Note3" Text="Nothing" Grid.Row="1"/>
-            </Grid>
+            </Border>
+            <Border BorderBrush="{StaticResource DTframe}" BorderThickness="4" Grid.Row="1">
+                <Grid Grid.Row="1" MouseLeftButtonDown="Grid_MouseLeftButtonDown_2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="Date1" Text="Data" Grid.Row="0" Background="{StaticResource OnlyDate}" FontSize="16"/>
+                    <TextBlock x:Name="Note1" Text="Nothing" Grid.Row="1" Background="{StaticResource OnlyTitle}" FontSize="16"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="{StaticResource DTframe}" BorderThickness="4" Grid.Row="2">
+                <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown_1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="Date2" Text="Data" Grid.Row="0" Background="{StaticResource OnlyDate}" FontSize="16"/>
+                    <TextBlock Name="Note2" Text="Nothing" Grid.Row="1" Background="{StaticResource OnlyTitle}" FontSize="16"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="{StaticResource DTframe}" BorderThickness="4" Grid.Row="3">
+                <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="60*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="Date3" Text="Data" Grid.Row="0" Background="{StaticResource OnlyDate}" FontSize="16"/>
+                    <TextBlock Name="Note3" Text="Nothing" Grid.Row="1" Background="{StaticResource OnlyTitle}" FontSize="16"/>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Window>

@@ -20,18 +20,21 @@ namespace NoteProject
     /// </summary>
     public partial class AddNote : Window
     {
+        private string filename;
         User user = null;
         private int current;
-        public AddNote(User user)
+        public AddNote(User user, string filename)
         {
+            this.filename = filename;
             this.user = user;
             InitializeComponent();
         }
 
-        public AddNote(User user, int currentID)
+        public AddNote(User user, int currentID, string filename)
         {
             if (currentID > -1)
             {
+                this.filename = filename;
                 this.user = user;
                 InitializeComponent();
                 newTitle.Text = user.GetNote(currentID).Title1;
@@ -45,14 +48,23 @@ namespace NoteProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DateTime value;
+            try
+            {
+                value = newDate.SelectedDate.Value;
+            }
+            catch
+            {
+                value = DateTime.Now;
+            }
             if (Title == "Add new note.")
             {
-                user.AddNote(new Note(newTitle.Text, newContent.Text, newDate.SelectedDate));
+                user.AddNote(new Note(newTitle.Text, newContent.Text, value));
             } else
             {
-                user.UpdateNote(current, new Note(newTitle.Text, newContent.Text, newDate.SelectedDate));
+                user.UpdateNote(current, new Note(newTitle.Text, newContent.Text, value));
             }
-            XMLActions.Save("library.xml", user);
+            XMLActions.Save(filename, user);
             Close();
         }
 

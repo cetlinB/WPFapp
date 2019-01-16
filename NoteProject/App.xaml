@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:NoteProject"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="TCback" Color="LightSteelBlue" />
+        <SolidColorBrush x:Key="OnlyTitle" Color="LightGray" />
+        <SolidColorBrush x:Key="OnlyDate" Color="LightBlue" />
+        <SolidColorBrush x:Key="Description" Color="BlanchedAlmond"/>
+        <SolidColorBrush x:Key="DTframe" Color="LightCoral"/>
+        <SolidColorBrush x:Key="DTback" Color="LightPink"/>
     </Application.Resources>
 </Application>
