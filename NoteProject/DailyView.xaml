@@ -14,7 +14,7 @@
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="title" Grid.Row="0" Background="{StaticResource OnlyTitle}" TextAlignment="Center" FontSize="14"/>
-        <TextBlock x:Name="note" Grid.Row="1" Background="{StaticResource TCback}" TextAlignment="Justify" FontSize="12"/>
+        <TextBlock x:Name="note" Grid.Row="1" Background="{StaticResource TCback}" TextAlignment="Justify" FontSize="12" TextWrapping="Wrap"/>
         <Grid x:Name="NotesGrid" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60*"/>
@@ -25,22 +25,22 @@
                 <RowDefinition Height="60*"/>
             </Grid.RowDefinitions>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="0">
-                <TextBlock x:Name="Title0" MouseLeftButtonDown="Title0_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title0" MouseLeftButtonDown="Title0_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="1">
-                <TextBlock x:Name="Title1" MouseLeftButtonDown="Title1_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title1" MouseLeftButtonDown="Title1_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="2">
-                <TextBlock x:Name="Title2" MouseLeftButtonDown="Title2_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title2" MouseLeftButtonDown="Title2_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="3">
-                <TextBlock x:Name="Title3" MouseLeftButtonDown="Title3_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title3" MouseLeftButtonDown="Title3_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="4">
-                <TextBlock x:Name="Title4" MouseLeftButtonDown="Title4_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title4" MouseLeftButtonDown="Title4_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
             <Border BorderBrush="{StaticResource DTframe}" BorderThickness="3" Grid.Row="5">
-                <TextBlock x:Name="Title5" MouseLeftButtonDown="Title5_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13"/>
+                <TextBlock x:Name="Title5" MouseLeftButtonDown="Title5_MouseLeftButtonDown" Background="{StaticResource OnlyTitle}" FontSize="13" TextAlignment="Justify"/>
             </Border>
 
         </Grid>

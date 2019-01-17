@@ -22,12 +22,14 @@ namespace NoteProject
             try
             {
                 user = (NoteClassLibrary.Model.User)serializer.Deserialize(fs);
+                fs.Close();
             }
             catch
             {
                 user = new NoteClassLibrary.Model.User();
+                fs.Close();
+                Save(filename, user);
             }
-            fs.Close();
             return user; 
         }
 

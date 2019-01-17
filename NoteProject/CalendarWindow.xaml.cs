@@ -93,6 +93,7 @@ namespace NoteProject
                 days[day%7] = new TextBlock();
                 days[day % 7].Text = GetDayName((DayOfWeek)(day%7));
                 days[day % 7].FontSize = 18;
+                days[day % 7].TextAlignment = TextAlignment.Center;
                 days[day % 7].FontWeight = FontWeights.Bold;
                 Grid.SetColumn(days[day % 7], (day-1));
                 Grid.SetRow(days[day % 7], 0);
@@ -230,14 +231,16 @@ namespace NoteProject
             if(((TextBlock)e.Source).Text != "")
             {
                 List<Note> dailyNotes = new List<Note>();
-                foreach(Note a in notes)
+                int nday;
+                int.TryParse(((TextBlock)e.Source).Text.Split(' ')[0],out nday);
+                foreach (Note a in notes)
                 {
-                    if(a.Date1.Day.ToString() == ((TextBlock)e.Source).Text)
+                    if(a.Date1.Day == nday)
                     {
                         dailyNotes.Add(a);
                     }
                 }
-                DailyView day = new DailyView(((TextBlock)e.Source).Text + " " + GetMonthName(current.Month) +" " + current.Year.ToString(), dailyNotes);
+                DailyView day = new DailyView(((TextBlock)e.Source).Text.Split(' ')[0] + " " + GetMonthName(current.Month) +" " + current.Year.ToString(), dailyNotes);
                 day.Show();
             }
         }

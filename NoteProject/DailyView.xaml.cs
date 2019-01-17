@@ -25,6 +25,7 @@ namespace NoteProject
         {
             this.dailyNotes = notes;
             InitializeComponent();
+            FillElements();
             DailyWindow.Title = dateName;
         }
 
@@ -32,8 +33,10 @@ namespace NoteProject
         {
             title.Text = "";
             note.Text = "";
+            Title0.Visibility = Visibility.Visible;
             try
             {
+
                 Title0.Text = dailyNotes.ElementAt(0).Title1;
             }
             catch
@@ -80,7 +83,7 @@ namespace NoteProject
             {
                 Title5.Text = "";
             }
-
+            NotesGrid.UpdateLayout();
         }
 
         private void Title0_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -88,10 +91,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(0).Title1;
+                note.Text = dailyNotes.ElementAt(0).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
 
@@ -100,10 +105,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(1).Title1;
+                note.Text = dailyNotes.ElementAt(1).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
 
@@ -112,10 +119,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(2).Title1;
+                note.Text = dailyNotes.ElementAt(2).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
 
@@ -124,10 +133,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(3).Title1;
+                note.Text = dailyNotes.ElementAt(3).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
 
@@ -136,10 +147,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(4).Title1;
+                note.Text = dailyNotes.ElementAt(4).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
 
@@ -148,10 +161,12 @@ namespace NoteProject
             try
             {
                 title.Text = dailyNotes.ElementAt(5).Title1;
+                note.Text = dailyNotes.ElementAt(5).Content1;
             }
             catch
             {
                 title.Text = "";
+                note.Text = "";
             }
         }
     }

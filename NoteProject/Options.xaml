@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Podaj nazwę biblioteki docelowej:" Grid.Column="0" Grid.Row="0" Background="{StaticResource Description}" FontSize="14"/>
         <TextBlock Background="{StaticResource Description}" Grid.Row="1" Grid.Column="0"/>
-        <TextBox x:Name="filename" Grid.Column="1" Grid.Row="0" Background="{StaticResource TCback}"/>
+        <TextBox x:Name="filename" Grid.Column="1" Grid.Row="0" Background="{StaticResource TCback}" TextWrapping="Wrap"/>
         <Button Content="Zatwierdź" Click="Button_Click" Grid.Column="1" Grid.Row="1" FontSize="14"/>
     </Grid>
 </Window>

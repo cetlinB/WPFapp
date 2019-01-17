@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace NoteProject
         {
             options.Filename = filename.Text;
             XMLOptions.Save(NoteClassLibrary.Model.Options.RootOptions, options);
+            Close();
         }
     }
 }

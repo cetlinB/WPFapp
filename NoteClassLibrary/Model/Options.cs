@@ -7,19 +7,37 @@ namespace NoteClassLibrary.Model
     [XmlRoot(ElementName = "Options")]
     public class Options:NotificationObject
     {
-        private static string rootOptions = "rootLibrary.xml";
         [XmlElement(ElementName = "Database")]
-        private string filename;
+        private string filename = "";
+        private static int counter = 0;
+        Options single;
+
         public Options()
         {
-            if (!File.Exists(RootOptions))
-            {
-                File.WriteAllText(RootOptions,"");
-            }
-            Filename = "library.xml";
+
+        }
+        public Options(string filename)
+        {
+            this.filename = filename;
         }
 
-        public static string RootOptions { get => rootOptions; }
+        private Options(bool IsDefault)
+        {
+            counter++;
+            filename = "library.xml";
+        }
+
+        public Options getDefault()
+        {
+            if(counter == 0){
+                counter++;
+                single = new Options(true);
+            }
+            return single;
+        }
+
+
+        public static string RootOptions { get; } = "rootLibrary.xml";
         public string Filename { get => filename; set => filename = value; }
     }
 }

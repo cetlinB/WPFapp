@@ -18,11 +18,11 @@ namespace NoteProject
                 XmlSerializer serializer = new XmlSerializer(typeof(NoteClassLibrary.Model.User));
                 FileStream fs = new FileStream(filename, FileMode.Open);
                 options = (NoteClassLibrary.Model.Options)serializer.Deserialize(fs);
-                fs.Close();
+                fs.Dispose();
             }
             catch
             {
-                options = new NoteClassLibrary.Model.Options();
+                options = new NoteClassLibrary.Model.Options("library.xml");
             }
             
             return options;

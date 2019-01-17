@@ -58,6 +58,7 @@ namespace NoteClassLibrary.Model
         {
             try
             {
+                Notes.RemoveAt(index);
                 Notes.Insert(index, note);
             }
             catch

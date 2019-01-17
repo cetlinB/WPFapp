@@ -1,5 +1,6 @@
 ﻿using NoteClassLibrary.Model;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -18,7 +19,7 @@ namespace NoteProject
 
         public MainWindow()
         {
-            this.options = XMLOptions.Read("rootLibrary.xml");
+            this.options = XMLOptions.Read(NoteClassLibrary.Model.Options.RootOptions);
             currentNote = -1;
             firstNoteOnPage = 0;
             InitializeComponent();
@@ -200,6 +201,7 @@ namespace NoteProject
                 if (firstNoteOnPage <= 0)
                 {
                     ReloadPage();
+                    RewindNotes();
                     return;
                 }
                 else
@@ -222,6 +224,7 @@ namespace NoteProject
                     if (firstNoteOnPage <= 0)
                         return;
                     firstNoteOnPage--;
+                    RewindNotes();
                 }
                 if (thisUser.GetNote(firstNoteOnPage + 2) != null)
                 {
@@ -280,6 +283,11 @@ namespace NoteProject
         {
             Options options = new Options(this.options);
             options.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            XMLActions.Save(options.Filename, thisUser);
         }
     }
 }
